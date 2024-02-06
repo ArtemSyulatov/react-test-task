@@ -38,9 +38,11 @@ export const ProductPage = () => {
     const size = sizes.find((size) => size.id === currentSizeSelected);
     if (size) {
       store.sendProductToBasket({
-        color,
-        card,
-        size,
+        product: card.name,
+        price: color.price,
+        color: color.name,
+        size: size.label,
+        image: color.images[0],
       });
     }
   }, [color, sizes, card, currentSizeSelected]);
